@@ -1,0 +1,13 @@
+package com.trainingspringboot.pratik;
+
+import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.context.SpringBootTest;
+
+@SpringBootTest
+class PratikApplicationTests {
+
+	@Test
+	void contextLoads() {
+	}
+
+}
