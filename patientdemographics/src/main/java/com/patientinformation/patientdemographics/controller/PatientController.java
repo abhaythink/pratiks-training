@@ -2,6 +2,7 @@ package com.patientinformation.patientdemographics.controller;
 
 import com.patientinformation.patientdemographics.dto.PatientDto;
 import com.patientinformation.patientdemographics.entity.Patient;
+import com.patientinformation.patientdemographics.service.FhirService;
 import com.patientinformation.patientdemographics.service.PatientService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -18,6 +19,7 @@ public class PatientController {
     public PatientController(PatientService service) {
         this.service = service;
     }
+
 
     @PostMapping("/add")
     public ResponseEntity<Patient> create(@RequestBody PatientDto patientDto) {
@@ -39,14 +41,14 @@ public class PatientController {
         return ResponseEntity.status(HttpStatus.OK).body(service.update(id, patientDto));
     }
 
-//    @DeleteMapping("/delete/{id}")
-//    public ResponseEntity<Void> delete(@PathVariable Long id) {
-//        if (service.findById(id).isPresent()) {
-//            service.delete(id);
-//            return ResponseEntity.noContent().build();
-//        }
-//        return ResponseEntity.notFound().build();
-//    }
+   /* @DeleteMapping("/delete/{id}")
+    public ResponseEntity<Void> delete(@PathVariable Long id) {
+        if (service.findById(id).isPresent()) {
+            service.delete(id);
+            return ResponseEntity.noContent().build();
+        }
+        return ResponseEntity.notFound().build();
+   }*/
 
 
 }

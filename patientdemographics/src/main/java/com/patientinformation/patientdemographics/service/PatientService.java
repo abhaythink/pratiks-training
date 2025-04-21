@@ -1,10 +1,16 @@
 package com.patientinformation.patientdemographics.service;
 
 
+import com.patientinformation.patientdemographics.dto.OccupationDto;
 import com.patientinformation.patientdemographics.dto.PatientDto;
+import com.patientinformation.patientdemographics.dto.RelatedPersonDto;
+import com.patientinformation.patientdemographics.entity.Occupation;
 import com.patientinformation.patientdemographics.entity.Patient;
+import com.patientinformation.patientdemographics.entity.RelatedPerson;
 import com.patientinformation.patientdemographics.repository.PatientRepository;
+import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
+import org.springframework.util.FileCopyUtils;
 
 import java.util.List;
 import java.util.Optional;
@@ -31,6 +37,24 @@ public class PatientService {
 
     public Patient add(PatientDto patientDto) {
         Patient patient = patientDto.toPatient();
+
+        RelatedPersonDto relatedPersonDto = patientDto.getRelatedPerson();
+        RelatedPerson relatedPerson = new RelatedPerson();
+        BeanUtils.copyProperties(relatedPersonDto, relatedPerson );
+
+        OccupationDto occupationDto =patientDto.getOccupation();
+        Occupation occupation = new Occupation();
+        BeanUtils.copyProperties(occupationDto,occupation);
+
+        patient.setOccupation(occupation);
+        occupation.setPatient(patient);
+
+
+        patient.setRelatedPerson(relatedPerson);
+        relatedPerson.setPatient(patient);
+
+
+
         return repository.save(patient);
     }
 

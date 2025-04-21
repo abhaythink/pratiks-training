@@ -10,13 +10,13 @@ public class Occupation {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "occupation", nullable = false)
-    private String occupation;
+    @Column(name = "occupationName", nullable = false)
+    private String occupationName;
 
     @Column(name = "industry", nullable = false)
     private String industry;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "patient_id", nullable = false)
     private Patient patient;
 
@@ -28,12 +28,12 @@ public class Occupation {
         this.id = id;
     }
 
-    public String getOccupation() {
-        return occupation;
+    public String getOccupationName() {
+        return occupationName;
     }
 
-    public void setOccupation(String occupation) {
-        this.occupation = occupation;
+    public void setOccupationName(String occupationName) {
+        this.occupationName = occupationName;
     }
 
     public String getIndustry() {

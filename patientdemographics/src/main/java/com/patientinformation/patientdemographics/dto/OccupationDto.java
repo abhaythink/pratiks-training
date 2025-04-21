@@ -2,7 +2,7 @@ package com.patientinformation.patientdemographics.dto;
 
 public class OccupationDto {
     private Long id;
-    private String occupation;
+    private String occupationName;
     private String industry;
     private Long patientId;
 
@@ -14,12 +14,12 @@ public class OccupationDto {
         this.id = id;
     }
 
-    public String getOccupation() {
-        return occupation;
+    public String getOccupationName() {
+        return occupationName;
     }
 
-    public void setOccupation(String occupation) {
-        this.occupation = occupation;
+    public void setOccupationName(String occupationName) {
+        this.occupationName = occupationName;
     }
 
     public String getIndustry() {

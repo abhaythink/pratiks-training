@@ -1,4 +1,6 @@
 package com.patientinformation.patientdemographics.entity;
+import com.patientinformation.patientdemographics.dto.OccupationDto;
+import com.patientinformation.patientdemographics.dto.RelatedPersonDto;
 import jakarta.persistence.*;
 
 import java.util.Date;
@@ -69,6 +71,14 @@ public class Patient {
 
     @Column(name = "email")
     private String email;
+
+
+    @OneToOne(mappedBy = "patient", cascade = CascadeType.ALL)
+    private RelatedPerson relatedPerson;
+
+
+    @OneToOne(mappedBy = "patient", cascade = CascadeType.ALL)
+    private Occupation occupation;
 
     public String getSex() {
         return sex;
@@ -229,4 +239,23 @@ public class Patient {
     public void setEmail(String email) {
         this.email = email;
     }
+
+
+    public RelatedPerson getRelatedPerson() {
+        return relatedPerson;
+    }
+
+    public void setRelatedPerson(RelatedPerson relatedPerson) {
+        this.relatedPerson = relatedPerson;
+    }
+
+   public Occupation getOccupation() {
+        return occupation;
+    }
+
+    public void setOccupation(Occupation occupation) {
+        this.occupation = occupation;
+    }
+
+
 }

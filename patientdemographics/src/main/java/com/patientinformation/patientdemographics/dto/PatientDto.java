@@ -28,6 +28,10 @@ public class PatientDto {
     private String phoneNumberType;
     private String email;
 
+    private RelatedPersonDto relatedPerson;
+
+    private OccupationDto occupation;
+
     public String getNameSuffix() {
         return nameSuffix;
     }
@@ -188,6 +192,22 @@ public class PatientDto {
         this.email = email;
     }
 
+    public RelatedPersonDto getRelatedPerson() {
+        return relatedPerson;
+    }
+
+    public void setRelatedPerson(RelatedPersonDto relatedPerson) {
+        this.relatedPerson = relatedPerson;
+    }
+
+    public OccupationDto getOccupation() {
+        return occupation;
+    }
+
+    public void setOccupation(OccupationDto occupation) {
+        this.occupation = occupation;
+    }
+
     public Patient toPatient() {
         Patient patient = new Patient();
         patient.setFirstName(firstName);
@@ -211,4 +231,7 @@ public class PatientDto {
         patient.setEmail(email);
         return patient;
     }
+
+
+
 }

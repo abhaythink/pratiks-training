@@ -36,9 +36,9 @@ public class OccupationService {
         if (patientOptional.isPresent()) {
             Patient patient = patientOptional.get();
             Occupation occupation = new Occupation();
-            occupation.setOccupation(occupationDto.getOccupation());
+            occupation.setOccupationName(occupationDto.getOccupationName());
             occupation.setIndustry(occupationDto.getIndustry());
-            occupation.setPatient(patient);
+            //occupation.setPatient(patient);
             Occupation occupationSaved = repository.save(occupation);
             return occupationSaved;
         }

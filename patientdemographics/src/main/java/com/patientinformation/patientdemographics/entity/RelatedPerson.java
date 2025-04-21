@@ -16,9 +16,11 @@ public class RelatedPerson {
     @Column(name = "relationship", nullable = false)
     private String relationship;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "patient_id", nullable = false)
     private Patient patient;
+
+
 
 
     public Long getId() {
